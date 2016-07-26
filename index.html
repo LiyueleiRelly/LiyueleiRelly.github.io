@@ -1,38 +1,96 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
-    <title>Liyueleirelly.GitHub.io by LiyueleiRelly</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">sky喜欢</h1>
-      <h2 class="project-tagline"></h2>
-    </section>
+    <title>寻猎网</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/non-responsive.css">
+    <link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
 
-    <section class="main-content">
-      <h3>
-<a id="sky喜欢的博客" class="anchor" href="#sky%E5%96%9C%E6%AC%A2%E7%9A%84%E5%8D%9A%E5%AE%A2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sky喜欢的博客</h3>
+<!--header-->
+<nav class="navbar navbar-default navbar-inverse navbar-top">
+    <div class="container">
+        <div class="navbar-header">
+            <h3 class="navbar-brand header_name" href="#">寻猎网<small>&nbsp;做最好的寻猎平台</small></h3>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-inverse navbar-bottom">
+    <div class="container ">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">我是猎头</a></li>
+            <li><a href="#">我是大学生</a></li>
+            <li><a href="#">我是高中生</a></li>
+        </ul>
+    </div>
+</nav>
 
-<p>欢迎来到sky喜欢的博客，</p>
+<!--body-->
+<div class="container-fluid container-log" style="background:url(img/log-bg.jpg);" >
+    <div class="col-xs-3 col-xs-offset-8 logdiv"  >
+        <ul class="nav nav-tabs order_nav nav-justified" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">猎头登录</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">猎头注册</a></li>
+        </ul>
+        <div class="order_list tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <form class="form-signin">
+                    <label for="inputEmail" class="sr-only">手机号</label>
+                    <input type="text" id="inputEmail" class="form-control" placeholder="请输入手机号码" required="" autofocus="">
+                    <label for="inputPassword" class="sr-only">密码</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="请输入密码" required="">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <a type="button" class="btn btn-primary" href="orderlist.html">登录</a>
+                        </div>
+                        <!--<div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                注册
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">大学生注册</a></li>
+                                <li><a href="#">猎头注册</a></li>
+                                <li><a href="#">高中生注册</a></li>
+                            </ul>
+                        </div>-->
+                    </div>
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane " id="profile">
+                <form class="form-signin">
+                    <label for="inputEmail" class="sr-only">手机号</label>
+                    <input type="text" id="ab" class="form-control" placeholder="请输入手机号码" required="" autofocus="">
+                    <label for="inputPassword" class="sr-only">密码</label>
+                    <input type="password" id="aa" class="form-control" placeholder="请输入密码" required="">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-success">注册</button>
+                        </div>
 
-<h3>
-<a id="个人简介" class="anchor" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>个人简介</h3>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-<p>吾性温良，亦热情喜乐，静时如处女，动时如脱兔。</p>
+    </div>
+</div>
 
-      <footer class="site-footer">
+<!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row text-center">
+            <p class="text-muted">京ICP备09083200号 京ICP证070419号 人才服务许可证:RC0710280 京公网安备:11010502026763</p>
+            <p class="text-muted"> Copyright©2000-2016 liepin.com All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
 
-    </section>
-
-  
-  </body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
 </html>

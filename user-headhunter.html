@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>寻猎网</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/non-responsive.css">
+</head>
+<body>
+
+<!--header-->
+<nav class="navbar navbar-default navbar-inverse navbar-top">
+    <div class="container">
+        <div class="navbar-header">
+            <h3 class="navbar-brand header_name" href="#">寻猎网<small>&nbsp;做最好的寻猎平台</small></h3>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-inverse navbar-bottom">
+    <div class="container ">
+
+        <ul class="nav navbar-nav">
+            <li ><a href="#">我的首页</a></li>
+            <li><a href="#">委托</a></li>
+            <li><a href="#">职业规划咨询</a></li>
+            <li><a href="#">专业建议咨询</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp;李先生 <span class="caret"></span></a>
+                <ul class="dropdown-menu nav-dropdown">
+                    <li><a href="user-headhunter.html?id=1">个人中心</a></li>
+                    <li><a href="user-headhunter.html?id=2">信息修改</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">安全退出</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--body-->
+<div class="container">
+    <ul class="nav nav-pills nav-stacked col-xs-2">
+        <li role="presentation" class=""><a id="info_a" href="#user-information" aria-controls="user-information" role="tab" data-toggle="tab">个人资料</a></li>
+        <li role="presentation" ><a id="info_b" href="#edit-information" aria-controls="edit-information" role="tab" data-toggle="tab">修改个人信息</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class=" col-xs-10 tab-pane"  id="user-information">
+            <h4 class="userpage_title">个人资料</h4>
+            <div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">注册手机号</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">18611255411</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">李先生</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">男</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">公司</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">重庆市玖泰企业管理咨询有限公司</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">skyfly@qq.com</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">领域</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">IT互联网</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">职能</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">
+                                <span class="label label-info">财会</span>
+                                <span class="label label-info">人力资源</span>
+                                <span class="label label-info">高级管理</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">个人简介</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">吾性温良，亦热情喜乐，静时如处女，动时如脱兔。</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">是否金牌</label>
+                        <div class="col-sm-5">
+                            <p class="form-control-static">是</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div role="tabpanel" class="edit-information col-xs-10 tab-pane"  id="edit-information">
+            <h4 class="userpage_title">修改个人信息</h4>
+            <div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">注册手机号</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">18611255411</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="name" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-5">
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">公司</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">领域</label>
+                        <div class="col-sm-5">
+                            <select class="form-control">
+                                <option>IT.互联网</option>
+                                <option>房地产</option>
+                                <option>金融</option>
+                                <option>消费品</option>
+                                <option>汽车制造</option>
+                                <option>医疗化工</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">职能</label>
+                        <div class="col-sm-10">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox1" value="option1"> 高级管理
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox2" value="option2"> 人力资源
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 财会
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 市场
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 公关
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 法务
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> 行政
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">个人简介</label>
+                        <div class="col-sm-5">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 是否金牌
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    </div>
+
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row text-center">
+            <p class="text-muted">京ICP备09083200号 京ICP证070419号 人才服务许可证:RC0710280 京公网安备:11010502026763</p>
+            <p class="text-muted"> Copyright©2000-2016 liepin.com All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script >
+    var id=getQueryString("id");
+    start(id);
+    function start(id){
+        switch(id){
+            case "1": $("#info_a").trigger("click");
+                break;
+            case "2": $("#info_b").trigger("click");
+                break;
+        }
+    }
+
+    //截取URL参数
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]); return null;
+    }
+</script>
+</body>
+</html>
