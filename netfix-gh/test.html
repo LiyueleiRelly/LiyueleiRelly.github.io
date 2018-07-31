@@ -101,7 +101,7 @@
                 fetchVideo(startNode,fetchVideoCallback);
                 video.addEventListener('timeupdate', checkBuffer);
                 video.addEventListener('canplay',()=>{
-                    video.play();
+                    //video.play();
                 });
                 video.addEventListener('seeking',seek);
             }
