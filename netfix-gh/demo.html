@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>交互视频组件</title>
+        <link rel="stylesheet" href="./interactiveVideo.css">       
+    </head>
+    <body>
+        <div class="container">
+            <video id="video" muted controls></video>
+        </div>
+        <pre>
+            interactiveVideo.init({videoId: 'video',startNode,videoNode});
+            const startNode = 'node1';
+            const videoNode = {
+                'node1': {
+                    name: 'node1',
+                    url: 'frag_bunny.mp4',
+                    prefecth: ['node2', 'node3'],
+                    buttons: [
+                        {
+                            text: 'toNode2',
+                            to: 'node2'
+                        },{
+                            text: 'toNode3',
+                            to: 'node3'
+                        }
+                    ],
+                    isEnd: false,
+                },
+                'node2': {
+                    name: 'node2',
+                    url: 'new.mp4',
+                    prefecth: ['node1', 'node3'],
+                    buttons: [
+                        {
+                            text: 'toNode1',
+                            to: 'node1'
+                        },{
+                            text: 'toNode3',
+                            to: 'node3'
+                        }
+                    ],
+                    isEnd: true,
+                },
+                'node3': {
+                    name: 'node3',
+                    url: 'new2.mp4',
+                    prefecth: [],
+                    isEnd: true,
+                }
+            }
+            
+        </pre>
+        <script src="./interactiveVideo.js"></script>
+        <script>
+            const startNode = 'node1';
+            const videoNode = {
+                'node1': {
+                    name: 'node1',
+                    url: 'frag_bunny.mp4',
+                    prefecth: ['node2', 'node3'],
+                    buttons: [
+                        {
+                            text: 'toNode2',
+                            to: 'node2'
+                        },{
+                            text: 'toNode3',
+                            to: 'node3'
+                        }
+                    ],
+                    isEnd: false,
+                },
+                'node2': {
+                    name: 'node2',
+                    url: 'new.mp4',
+                    prefecth: ['node1', 'node3'],
+                    buttons: [
+                        {
+                            text: 'toNode1',
+                            to: 'node1'
+                        },{
+                            text: 'toNode3',
+                            to: 'node3'
+                        }
+                    ],
+                    isEnd: true,
+                },
+                'node3': {
+                    name: 'node3',
+                    url: 'new2.mp4',
+                    prefecth: [],
+                    isEnd: true,
+                }
+            }
+            interactiveVideo.init({videoId: 'video',startNode,videoNode});
+        </script>
+    </body>
+</html>

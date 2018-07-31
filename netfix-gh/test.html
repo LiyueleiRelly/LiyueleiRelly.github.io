@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>交互视频组件</title>
+        <style>
+            video {
+                width: 500px;
+                height: 300px;
+            }
+            .buttonGroup {
+                position: absolute;
+                top: 200px;
+                width: 500px;
+                display: flex;
+                justify-content:center;
+            }
+            .container {
+                position: relative;
+                overflow: hidden;
+            }
+            .button {
+                padding:10px 20px;
+                border-radius: 10px;
+                font-size: 20px;
+                background: #09F;
+                border-color: transparent;
+                opacity: 0.5;
+                cursor: pointer;
+            }
+            .button:hover {
+                background: #09C
+            }
+        </style>        
+    </head>
+    <body>
+        <div class="container">
+            <video controls></video>
+            <div class="buttonGroup"></div>
+        </div>
+        
+        <script>
+            const startNode = 'node1';
+            const videoNode = {
+                'node1': {
+                    name: 'node1',
+                    url: 'frag_bunny.mp4',
+                    prefecth: ['node2', 'node3'],
+                    buttons: [
+                        {
+                            text: 'toNode2',
+                            to: 'node2'
+                        },{
+                            text: 'toNode3',
+                            to: 'node3'
+                        }
+                    ],
+                    isEnd: false,
+                },
+                'node2': {
+                    name: 'node2',
+                    url: 'new.mp4',
+                    prefecth: ['node1', 'node3'],
+                    buttons: [
+                        {
+                            text: 'toNode1',
+                            to: 'node1'
+                        },{
+                            text: 'toNode3',
+                            to: 'node3'
+                        }
+                    ],
+                    isEnd: true,
+                },
+                'node3': {
+                    name: 'node3',
+                    url: 'new2.mp4',
+                    prefecth: [],
+                    isEnd: true,
+                }
+            }
+
+            const video = document.querySelector('video');
+            let playlist = [];
+            let buffer = [];
+            let currentNode = null;
+            var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+
+            let mediaSource = null;
+            let sourceBuffer = null;
+            
+            
+            
+            const sourceOpen = (_) => {
+                sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
+                //至关重要，解决切换时候卡顿声音先放的问题 用了三个小时才找到这个解决办法
+                //默认的mode是 'segment'， 是基于时间轴来播放的，而不是顺序
+                sourceBuffer.mode = 'sequence';
+                currentNode = startNode;
+                playlist.push(startNode);
+                fetchVideo(startNode,fetchVideoCallback);
+                video.addEventListener('timeupdate', checkBuffer);
+                video.addEventListener('canplay',()=>{
+                    video.play();
+                });
+                video.addEventListener('seeking',seek);
+            }
+
+            const fetchVideo = (node,cb) => {
+
+                if(node in buffer) return false;
+
+                const nodeInfo = videoNode[node];
+                let xhr = new XMLHttpRequest;
+                xhr.open('get', nodeInfo.url);
+                xhr.responseType = 'arraybuffer';
+                xhr.onload = () => {
+                    console.log('getch bytes');
+                    cb(xhr.response,node);
+                }
+                xhr.send();
+            }
+
+            const fetchVideoCallback = (response,node) => {
+                buffer[node] = response;
+                if(node == startNode){
+                    sourceBuffer.appendBuffer(buffer[startNode]);
+                    videoNode[startNode].prefecth.forEach(element => {
+                        fetchVideo(element,fetchVideoCallback);
+                });
+                }
+
+            }
+            let check = true;
+            const checkBuffer = (_) => {
+                const currentTime = video.currentTime;
+                const duration = video.duration;
+                if(duration- currentTime < 8 && check){
+                    check = false;
+                    currentNode = playlist.slice(-1)[0];
+                    console.log('time to choose');
+                    const buttons = videoNode[currentNode].buttons;
+                    buttons&&createButtons(buttons);
+                    //sourceBuffer.appendBuffer(buffer['node2']);
+                }
+                /* if(duration- currentTime < 0.2 ){
+                    const nextNode = playlist.slice(-1)[0];
+                    console.log('ended');
+                    sourceBuffer.appendBuffer(buffer[nextNode]);
+                    //sourceBuffer.appendBuffer(buffer['node2']);
+                } */
+            }
+
+            const seek = (e) => {
+                console.log(e);
+                if (mediaSource.readyState === 'open') {
+                    sourceBuffer.abort();
+                    console.log(mediaSource.readyState);
+                } else {
+                    console.log('seek but not open?');
+                    console.log(mediaSource.readyState);
+                }
+            }
+            
+            const shouldFetchNext = (currentNode) => {
+
+            }
+
+            const createButtons = (buttons) => {
+                const str = buttons.map((e)=>{
+                    return `<button class="button" onClick="toNext('${e.to}')">${e.text}</button>`;
+                }).join('');
+                const buttonGroup = document.querySelector('.buttonGroup');
+                buttonGroup.innerHTML = str;
+            }
+            
+            const toNext = (nextNode) => {
+                sourceBuffer.appendBuffer(buffer[nextNode]);
+                const buttonGroup = document.querySelector('.buttonGroup');
+                buttonGroup.innerHTML = '';
+                check = true;
+                playlist.push(nextNode);
+                videoNode[nextNode].prefecth.forEach(element => {
+                        fetchVideo(element,fetchVideoCallback);
+                });
+            }
+            if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
+                    mediaSource = new MediaSource;
+                    video.src = URL.createObjectURL(mediaSource);
+                    mediaSource.addEventListener('sourceopen', sourceOpen);
+            } else {
+                    console.error('Unsupported MIME type or codec: ', mimeCodec);
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
